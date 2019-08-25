@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <title>Mobile Share</title>
+    <link rel="stylesheet" href="share.css">
+  </head>
+  <body>
+    <div class="layout" id="modal">
+      <div class="container" id="content">
+        <i class="fa fa-share-alt" aria-hidden="true"></i>
+          <ul id="ul_list">
+            <li><i class="fa fa-facebook" aria-hidden="true"></i></li>
+            <li><i class="fa fa-telegram" aria-hidden="true"></i></li>
+            <li><i class="fa fa-pinterest" aria-hidden="true"></i></li>
+            <li><i class="fa fa-google-plus" aria-hidden="true"></i></li>
+            <li><i class="fa fa-twitter" aria-hidden="true"></i></li>
+            <li><i class="fa fa-linkedin" aria-hidden="true"></i></li>
+          </ul>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      var cont = document.getElementById('content');
+      var mod = document.getElementById('modal');
+      var list = document.getElementById('ul_list').children;
+      var open = false;
+
+      cont.addEventListener('click', () => {
+        if(open === false){
+          var i = 0;
+          while(i < 6){
+            var j = i+1;
+            list[i].classList.add('show-' + j);
+            i++;
+          }
+          open = true;
+        }
+        else {
+          var i = 0;
+          while(i < 6){
+            var j = i+1;
+            list[i].classList.remove('show-' + j);
+            i++;
+          }
+          open = false;
+        }
+      });
+
+      window.addEventListener('click', (e) => {
+        if(e.target == mod){
+          var i = 0;
+          while(i < 6){
+            var j = i+1;
+            list[i].classList.remove('show-' + j);
+            i++;
+          }
+          open = false;
+        }
+      });
+    </script>
+  </body>
+</html>
